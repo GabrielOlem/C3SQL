@@ -6,7 +6,7 @@ from tqdm import tqdm
 from collections import Counter
 
 # add your openai api key
-openai.api_key = "sk-"
+openai.api_key = "sk-proj-kuF0tDDiYQhMy4k6z9kkT3BlbkFJYLbgget53kLISYFStKhN"
 
 
 def parse_option():
@@ -23,7 +23,7 @@ def parse_option():
 
 
 def generate_reply(input, sc_num):
-    completions = openai.ChatCompletion.create(
+    completions = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=input,
         # top_p=0.5

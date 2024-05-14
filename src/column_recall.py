@@ -6,7 +6,7 @@ from tqdm import tqdm
 from collections import Counter
 
 # add your openai api key
-openai.api_key = "sk-"
+openai.api_key = "sk-proj-kuF0tDDiYQhMy4k6z9kkT3BlbkFJYLbgget53kLISYFStKhN"
 
 
 def parse_option():
@@ -24,7 +24,7 @@ def parse_option():
 
 
 def generate_reply(input, sc_num):
-    completions = openai.ChatCompletion.create(
+    completions = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=input,
         temperature=0.7,
@@ -171,7 +171,7 @@ Explain why you choose each column.
 if __name__ == "__main__":
     opt = parse_option()
     print(opt)
-    with open(opt.input_dataset_path) as f:
+    with open(opt.input_recalled_tables_path) as f:
         data_all = json.load(f)
     res = []
     if opt.self_consistent:
@@ -201,5 +201,5 @@ if __name__ == "__main__":
         info = info_generate(tabs_cols, data)
         res.append(info)
         # print(res)
-        with open(opt.output_dataset_path, 'w') as f:
+        with open(opt.output_recalled_columns_path, 'w') as f:
             json.dump(res, f, indent=2)
