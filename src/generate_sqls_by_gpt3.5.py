@@ -10,7 +10,7 @@ from get_selfconsistent_output import get_sqls
 from tqdm import tqdm
 
 # add your openai api key
-#openai.api_key = ""
+openai.api_key = ""
 
 chat_prompt = [
     {
@@ -58,7 +58,7 @@ def parse_option():
 
 
 def generate_reply(messages, n):
-    completions = openai.ChatCompletion.create(
+    completions = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=messages,
         n=n

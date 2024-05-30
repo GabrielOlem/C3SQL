@@ -1,0 +1,103 @@
+select t2.episode,  t2.rating from tv_series as t1 join tv_series as t2 on t1.id  =  t2.parent where rating  >  7 order by rating desc limit 3;
+select grade from highschooler;
+select city from employee where age  <  30 group by city having count(*)  >  1;
+select name from employee order by age;
+select t1.fullname,  t2.id from car_makers as t1 join model_list as t2 on t1.id  =  t2.maker group by t1.id having count(*)  >  3;
+select t1.email_address from professionals as t1 join owners as t2 on t1.owner_id  =  t2.owner_id where first_name like '%hawai%' intersect select email_address from professionals except select email_address from professionals where state like 'wi%';
+select t1.paragraph_id,  t2.paragraph_text from documents as t1 join paragraphs as t2 on t1.document_id  =  t2.document_id where t1.document_name  =  "welcome to ny";
+select avg(t1.grade) from highschooler as t1 join friend as t2 on t1.id  =  t2.student_id;
+select t1.airline,  t2.abbreviation from airlines as t1 join country as t2 on t1.country  =  t2.country where t2.countryabrev  =  'usa';
+select id from highschooler where student_id in (select t1.student_id from friend as t1 join highschooler as t2 on t1.friend_id  =  t2.id) intersect select t3.student_id from like as t1 join highschooler as t2 on t
+select t1.name from people as t1 join poker_player as t2 on t1.people_id  =  t2.people_id;
+select avg(t1.lifeexpectancy) from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode where t2.isofficial!= "english";
+select t1.contestant_number,  t2.contestant_name from contests as t1 join contestants as t2 on t1.contestant_number  =  t2.contestant_number group by t1.contestant_number having count(*)  >=  2
+select t2.fullname from car_makers as t1 join cars_data as t2 on t1.id  =  t2.make where year  =  1970;
+select t1.nationality from people as t1 group by t1.nationality order by count(*) desc limit 1;
+select avg(edispl) from cars_data where make  =  'volvo';
+select count(distinct country_code) from players; 107;
+select avg(t1.weight),  t2.year from cars_data as t1 join model_list as t2 on t1.id  =  t2.model where t2.year  =  2015; unnest (distinct make) except select distinct make from car_
+select t2.template_type_code from ref_template_types as t1 join templates as t2 on t1.template_type_code  =  t2.template_type_code where t1.template_type_description  =  'book';
+select t2.content from tv_channel as t1 join tv_series as t2 on t1.id  =  t2.channel where t2.series_name  = 'sky radio';
+select count(*) from documents;
+select count(distinct t1.degree_summary_name) from degree_programs as t1 join student_enrolment as t2 on t1.degree_program_id  =  t2.degree_program_id;
+select count(distinct language) from countrylanguage where indepyear <  1930;
+select count(*) from flights as t1 join airports as t2 on t1.sourceairport  =  t2.airportcode where t2.airportname  =  "ahd";
+select t1.name from country as t1 join country as t2 on t1.code!= t2.code where t1.continent  =  "africa" intersect select name from country except select name from country where continent  =  "asia";
+select t1.major,  t2.age from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid where t2.t3!= "cat";
+select t1.first_name,  t2.birth_date from players as t1 join countries as t2 on t1.country_code  =  "usa";
+select t1.song_name,  t2.song_release_year from song as t1 join singer as t2 on t1.song_name  =  t2.song_name where is_male  =  "false" and age  <= (select min(t3.age) from singer
+select t1.final_table_made,  t2.best_finish from poker_player as t1 join poker_tournament as t2 on t1.poker_tournament_id  =  t2.poker_tournament_id;
+select t1.flightno from flights as t1 join airports as t2 on t1.destairport  =  t2.airportcode where t2.airportname  =  "apg";
+select sum(bonus) from evaluation;
+select min(t2.weight) from cars_data as t1 join car_names as t2 on t1.id  =  t2.makeid where t1.cylinders  =  8 and year  =  1974;
+select name from country order by population desc limit 3;
+select t1.winner_name,  t2.loser_name from matches as t1 join players as t2 on t1.winner_id  =  t2.player_id where draw_size  =  3 intersect select t1.winner_name,  t2.loser
+select t1.name from singer as t1 join song as t2 on t1.singer_id  =  t2.singer_id where t2.song_id is null;
+select distinct country from singer where is_male!= "t" and age  >  20;
+select t1.contnamen from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country where t2.country is null;
+select t1.continent from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode group by t1.continent order by count(*) desc limit 1;
+select title,  directed_by from cartoon order by original_air_date;
+select t1.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode where language  =  "english" intersect select t1.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode
+select t1.department_name,  t1.department_id from departments as t1 join degree_programs as t2 on t1.department_id  =  t2.department_id group by t1.department_id order by count(*) desc limit 1;
+select count(*) from pets as t1 join student as t2 on t1.petid  =  t2.stuid where t2.sex  =  'f' and t1.tpeet  =  "dog";
+select t1.name,  t2.country,  t3.age from singer as t1 join singer_in_concert as t2 on t1.singer_id  =  t2.singer_id order by t3.age;
+select count(*) from flights where destairport  =  'aberdeen' intersect select count(*) from flights where sourceairport  =  'abilene';
+select avg(mpg) from cars_data where cylinders  =  4;
+select language from countrylanguage where code  = 'republic' group by language having count(*)  =  1;
+select t1.name from country as t1 join country as t2 on t1.continent  =  "asia" where t2.lifeexpectancy  <= (select min(t3.lifeexpectancy) from country as t3 where continent  =  "asia");
+select document_name,  document_id from documents where document_description like '%w%';
+select fname from student where stuid in (select t1.stuid from has_pet as t1 join pets as t2 on t1.petid  =  t2.petid group by petid having count(*)  >  2);
+select t1.name,  t2.result from battle as t1 join death as t2 on t1.id  =  t2.caused_by_ship_id where t1.bulgarian_commander!= "boril";
+select name from teacher where teacher_id not in (select t1.teacher_id from course as t1 join course_arrange as t2 on t1.teachers_id  =  t2.teacher_id);
+select t1.model from cars_data as t1 join car_names as t2 on t1.id  =  t2.makeid group by t2.model order by sum(t1.mpg) desc limit 1;
+select min(t1.grade) from highschooler as t1 join friend as t2 on t1.id  =  t2.student_id where t2.friend_id is null;
+select t4.section_name from address as t1 join sections as t2 on t1.address_id  =  t2.section_id join course as t3 on t2.course_id  =  t3.course_id join student_enrolment_courses as t4 on t
+select count(*),  distinct t1.template_type_code from ref_template_types as t1 join templates as t2 on t1.template_type_code  =  t2.template_type_code group by t1.template_type_code;
+select count(*) from professionals as t1 join treats as t2 on t1.professional_id  =  t2.professional_id except select distinct professional_id from treats;
+select max(loser_rank) from matches;
+select t2.title from cartoon as t1 join tv_channel as t2 on t1.channel  =  t2.id where t2.series_name  = 'sky radio';
+select min(t1.airportcode) from airports as t1 join flights as t2 on t1.airportcode  =  t2.sourceairport group by t1.airportcode;
+select country from singer where is_male!= "t" and age >  20 group by country;
+select t1.model from car_names as t1 join cars_data as t2 on t1.makeid  =  t2.id where mpg  >  3500 except select make from car_names group by make having count(*)  >  1;
+select distinct t1.record_company,  count(*) from orchestra as t1 join performance as t2 on t1.orchestra_id  =  t2.orchestra_id group by t1.record_company;
+select count(*) from templates;
+select t1.airportname from airports as t1 join flights as t2 on t1.airportcode  =  t2.sourceairport where t1.airportcode  =  "ako";
+select t2.money_rank from poker_player as t1 join people as t2 on t1.people_id  =  t2.people_id order by t1.height desc limit 1;
+select t1.name from course as t1 join course_arrange as t2 on t1.course_id  =  t2.course_id where t2.subject  =  "math";
+select count(*) from likes where liked_id  =  1;
+select max(t1.created) from area_code_state as t1 join votes as t2 on t1.state  =  t2.state where t2.state  =  "ca";
+select t1.contid from counties as t1 join car_makers as t2 on t1.contid  =  t2.country where continent  =  "europe" group by t1.contid having count(*)  >=  3;
+select t1.grade from highschooler as t1 join likes as t2 on t1.id  =  t2.student_id where name  =  "kyle";
+select t1.country,  t2.countryname from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country where (select count(*) from car_makes group by country) >  3 intersect select countryname from car_m
+select max(t1.cost_of_treatment) from treats as t1 join treatments as t2 on t1.treatment_id  =  t2.treatment_id;
+select name,  grade from highschooler;
+select id from highschooler where student_id not in (select t1.student_id from friend as t1 join highschooler as t2 on t1.friend_id  =  t2.id);
+select count(*) from cartoon where directed_by  =  'joseph kuhr';
+select t1.treatment_type_description from treatment_types as t1 join treats as t2 on t1.treatment_type_code  =  t2.treatment_type_code group by cost_of_treatment order by sum(t2.cost_of_
+select t1.contid,  count(*) from continents as t1 join car_makers as t2 on t1.contid  =  t2.country group by t1.contid;
+select distinct year from cars_data where weight < 4000 intersect select distinct year from cars_data where weight > 3000;
+select t2.last_name from owners as t1 join dogs as t2 on t1.owner_id  =  t2.owner_id order by date_of_birth limit 1;
+select t1.petid from has_pet as t1 join pets as t2 on t1.petid  =  t2.petid where t2.tname  =  "smith";
+select t2.package_option from tv_channel as t1 join tv_series as t2 on t1.id  =  t2.channel where t2.series_name  = 'sky radio';
+select count(*) from concert where highest  =  (select max(t1.highest) from stadium as t1 join concert as t2 on t1.stadium_id  =  t2.stadium_id);
+select count(*) from airports;
+select t1.citizenship from singer as t1 join (select distinct citizenship from singer) as t2 on t1.citizenship  =  t2.citizenship group by t2.citizenship order by count(*) desc limit 1;
+select t1.contestant_name from contestants as t1 join votes as t2 on t1.contestant_number  =  t2.contestant_number where t1.contestant_name like '%al%';
+select min(t2.share),  max(t2.share) from tv_series as t1 join tv_series as t2 on t1.id!= t2.id;
+select t1.birth_date from people as t1 join poker_player as t2 on t1.people_id  =  t2.people_id order by t2.earnings limit 1;
+select distinct t1.model from cars_data as t1 join car_names as t2 on t1.id  =  t2.makeid where weight  <  3500 except select distinct t1.model from cars_data as t1 join car_names as t2 on t1.id
+select t1.document_id,  t2.document_name,  t3.document_description from documents as t1 join paragraphs as t2 on t1.document_id  =  t2.document_id join documents as t3 on t1.document_id  =  t3.
+select t1.name,  count(*) from countrylanguage as t1 join country as t2 on t1.countrycode  =  t2.code group by t1.countriespeaks having count(*)  >  2;
+select t2.episode from tv_serie as t1 join tv_channel as t2 on t1.channel  =  t2.id where t1.series_name  = 'sky radio';
+select t1.name,  sum(t2.sales) from singer as t1 join song as t2 on t1.singer_id  =  t2.singer_id group by t1.name;
+select t1.document_id,  t2.template_id,  t3.document_description from documents as t1 join templates as t2 on t1.template_id  =  t2.template_id where t1.document_name  =  'robin cv';
+select count(*) from templates as t1 join ref_template_types as t2 on t1.template_type_code  =  t2.template_type_code where t2.template_type_description  =  "cv";
+select t1.semester_name,  t1.semester_id from semesters as t1 join student_enrolment on t1.semester_id  =  student_enrolment.semester_id group by t1.semester_id order by count(*) desc limit 1;
+select t1.airportname from airports as t1 join flights as t2 on t1.airportcode  =  t2.sourceairport where t1.city  =  "aberdeen";
+select min(t1.age),  t2.name from teacher as t1 join course_arrange as t2 on t1.teacher_id  =  t2.teachert_id group by t2.name;
+select t3.name from concert as t1 join singer_in_concert as t2 on t1.concert_id  =  t2.concert_id join stadium as t3 on t2.stadium_id  =  t3.stadium_id where year(t1.
+select t1.template_id from templates as t1 join ref_template_types as t2 on t1.template_type_code  =  t2.template_type_code where t2.template_type_code  =  "pp" intersect select t1.template_id from templates as t
+select t1.language,  count(*) from countrylanguage as t1 join country as t2 on t1.countrycode  =  t2.code group by t1.language order by count(*) desc limit 5;
+select t4.section_description from address as t1 join sections as t2 on t1.address_id  =  t2.section_id join course as t3 on t2.course_id  =  t3.course_id join transcript_contents as t4 on t3.course_
+select t3.name from concert as t1 join singer_in_concert as t2 on t1.concert_id  =  t2.concert_id join singer as t3 on t2.singer_id  =  t3.singer_id where t1.year  =
+select title from cartoon where directed_by  =  'ben jones' intersect select title from cartoon where directed_by  =  'brandon vietti';

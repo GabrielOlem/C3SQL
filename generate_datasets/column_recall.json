@@ -1,0 +1,5333 @@
+[
+  {
+    "db_id": "tvshow",
+    "question": "What are 3 most highly rated episodes in the TV series table and what were those ratings?",
+    "schema": {
+      "tv_series": [
+        "rating",
+        "episode",
+        "id",
+        "air_date",
+        "channel"
+      ],
+      "tv_channel": [
+        "series_name",
+        "country",
+        "id",
+        "language",
+        "content"
+      ],
+      "cartoon": [
+        "title",
+        "id",
+        "channel",
+        "original_air_date",
+        "directed_by"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "cartoon": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "What is the grade of each high schooler?",
+    "schema": {
+      "highschooler": [
+        "grade",
+        "id",
+        "name"
+      ],
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "highschooler": [
+        [],
+        [],
+        []
+      ],
+      "friend": [
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "employee_hire_evaluation",
+    "question": "Find the cities that have more than one employee under age 30.",
+    "schema": {
+      "employee": [
+        "city",
+        "age",
+        "employee_id",
+        "name"
+      ],
+      "hiring": [
+        "employee_id",
+        "shop_id",
+        "is_full_time",
+        "start_from"
+      ],
+      "shop": [
+        "location",
+        "shop_id",
+        "district",
+        "name",
+        "number_products"
+      ],
+      "evaluation": [
+        "employee_id",
+        "year_awarded",
+        "bonus"
+      ]
+    },
+    "fk": [
+      "hiring.employee_id = employee.employee_id",
+      "hiring.shop_id = shop.shop_id",
+      "evaluation.employee_id = employee.employee_id"
+    ],
+    "db_contents": {
+      "employee": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "hiring": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "shop": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "evaluation": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "employee_hire_evaluation",
+    "question": "Sort employee names by their age in ascending order.",
+    "schema": {
+      "employee": [
+        "name",
+        "age",
+        "employee_id",
+        "city"
+      ],
+      "hiring": [
+        "employee_id",
+        "start_from",
+        "is_full_time",
+        "shop_id"
+      ],
+      "shop": [
+        "location",
+        "district",
+        "name",
+        "shop_id",
+        "number_products"
+      ],
+      "evaluation": [
+        "employee_id",
+        "year_awarded",
+        "bonus"
+      ]
+    },
+    "fk": [
+      "hiring.employee_id = employee.employee_id",
+      "hiring.shop_id = shop.shop_id",
+      "evaluation.employee_id = employee.employee_id"
+    ],
+    "db_contents": {
+      "employee": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "hiring": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "shop": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "evaluation": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "Which makers designed more than 3 car models? List full name and the id.",
+    "schema": {
+      "car_makers": [
+        "fullname",
+        "id",
+        "maker",
+        "country"
+      ],
+      "model_list": [
+        "maker",
+        "modelid",
+        "model"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ],
+      "countries": [
+        "countryid",
+        "countryname",
+        "continent"
+      ]
+    },
+    "fk": [
+      "car_makers.country = countries.countryid",
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model"
+    ],
+    "db_contents": {
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ],
+      "countries": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "dog_kennels",
+    "question": "What are the emails of the professionals living in either the state of Hawaii or the state of Wisconsin?",
+    "schema": {
+      "professionals": [
+        "email_address",
+        "state",
+        "professional_id",
+        "first_name",
+        "last_name"
+      ],
+      "owners": [
+        "first_name",
+        "email_address",
+        "owner_id",
+        "state",
+        "last_name"
+      ],
+      "dogs": [
+        "owner_id",
+        "dog_id",
+        "breed_code",
+        "abandoned_yn",
+        "size_code"
+      ],
+      "treatments": [
+        "professional_id",
+        "treatment_id",
+        "dog_id",
+        "treatment_type_code",
+        "date_of_treatment"
+      ]
+    },
+    "fk": [
+      "dogs.owner_id = owners.owner_id",
+      "dogs.owner_id = owners.owner_id",
+      "treatments.dog_id = dogs.dog_id",
+      "treatments.professional_id = professionals.professional_id"
+    ],
+    "db_contents": {
+      "professionals": [
+        [],
+        [
+          "Hawaii",
+          "Wisconsin"
+        ],
+        [],
+        [],
+        []
+      ],
+      "owners": [
+        [],
+        [],
+        [],
+        [
+          "Wisconsin"
+        ],
+        []
+      ],
+      "dogs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "treatments": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "Show all paragraph ids and texts for the document with name 'Welcome to NY'.",
+    "schema": {
+      "documents": [
+        "document_name",
+        "document_id",
+        "template_id",
+        "document_description"
+      ],
+      "paragraphs": [
+        "paragraph_text",
+        "paragraph_id",
+        "document_id",
+        "other_details"
+      ],
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "version_number",
+        "date_effective_from"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "documents": [
+        [
+          "Welcome to NY"
+        ],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "What is the average grade of students who have friends?",
+    "schema": {
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "highschooler": [
+        "grade",
+        "id",
+        "name"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "friend": [
+        [],
+        []
+      ],
+      "highschooler": [
+        [],
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "List all airline names and their abbreviations in \"USA\".",
+    "schema": {
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "uid",
+        "country"
+      ],
+      "airports": [
+        "country",
+        "airportcode",
+        "airportname",
+        "city",
+        "countryabbrev"
+      ],
+      "flights": [
+        "sourceairport",
+        "destairport",
+        "airline",
+        "flightno"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "airlines": [
+        [],
+        [],
+        [],
+        [
+          "USA"
+        ]
+      ],
+      "airports": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "flights": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "Show the ids of high schoolers who have friends and are also liked by someone else.",
+    "schema": {
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ],
+      "highschooler": [
+        "id",
+        "name",
+        "grade"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "friend": [
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ],
+      "highschooler": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "poker_player",
+    "question": "What are the names of poker players?",
+    "schema": {
+      "poker_player": [
+        "people_id",
+        "final_table_made",
+        "best_finish",
+        "poker_player_id",
+        "money_rank"
+      ],
+      "people": [
+        "people_id",
+        "name",
+        "nationality",
+        "birth_date"
+      ]
+    },
+    "fk": [
+      "poker_player.people_id = people.people_id"
+    ],
+    "db_contents": {
+      "poker_player": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "people": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "Give the mean life expectancy of countries in which English is not the official language.",
+    "schema": {
+      "countrylanguage": [
+        "language",
+        "isofficial",
+        "countrycode",
+        "percentage"
+      ],
+      "country": [
+        "name",
+        "code",
+        "lifeexpectancy",
+        "continent",
+        "region"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "district",
+        "population",
+        "id"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "countrylanguage": [
+        [
+          "English"
+        ],
+        [],
+        [],
+        []
+      ],
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "voter_1",
+    "question": "What are the contestant numbers and names of the contestants who had at least two votes?",
+    "schema": {
+      "votes": [
+        "contestant_number",
+        "phone_number",
+        "created",
+        "vote_id",
+        "state"
+      ],
+      "contestants": [
+        "contestant_number",
+        "contestant_name"
+      ],
+      "area_code_state": [
+        "state",
+        "area_code"
+      ]
+    },
+    "fk": [
+      "votes.contestant_number = contestants.contestant_number",
+      "votes.state = area_code_state.state"
+    ],
+    "db_contents": {
+      "votes": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "contestants": [
+        [],
+        []
+      ],
+      "area_code_state": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What is the name of the different car makers who produced a car in 1970?",
+    "schema": {
+      "car_makers": [
+        "maker",
+        "id",
+        "fullname",
+        "country"
+      ],
+      "cars_data": [
+        "year",
+        "id",
+        "mpg",
+        "cylinders"
+      ],
+      "model_list": [
+        "model",
+        "maker",
+        "modelid"
+      ],
+      "car_names": [
+        "makeid",
+        "model",
+        "make"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "poker_player",
+    "question": "What is the most common nationality of people?",
+    "schema": {
+      "people": [
+        "nationality",
+        "name",
+        "birth_date",
+        "people_id",
+        "height"
+      ],
+      "poker_player": [
+        "final_table_made",
+        "best_finish",
+        "people_id",
+        "poker_player_id",
+        "money_rank"
+      ]
+    },
+    "fk": [
+      "poker_player.people_id = people.people_id"
+    ],
+    "db_contents": {
+      "people": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "poker_player": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What is the average edispl of the cars of model volvo?",
+    "schema": {
+      "model_list": [
+        "model",
+        "maker",
+        "modelid"
+      ],
+      "car_makers": [
+        "maker",
+        "id",
+        "fullname",
+        "country"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ],
+      "cars_data": [
+        "edispl",
+        "id",
+        "mpg",
+        "cylinders"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "model_list": [
+        [
+          "volvo"
+        ],
+        [],
+        []
+      ],
+      "car_makers": [
+        [
+          "volvo"
+        ],
+        [],
+        [
+          "Volvo"
+        ],
+        []
+      ],
+      "car_names": [
+        [
+          "volvo"
+        ],
+        [],
+        []
+      ],
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "wta_1",
+    "question": "find the number of distinct country codes of all players.",
+    "schema": {
+      "players": [
+        "country_code",
+        "player_id",
+        "first_name",
+        "last_name"
+      ],
+      "rankings": [
+        "player_id",
+        "ranking_date",
+        "ranking_points",
+        "ranking",
+        "tours"
+      ],
+      "matches": [
+        "winner_id",
+        "loser_id",
+        "winner_ioc",
+        "loser_ioc",
+        "best_of"
+      ]
+    },
+    "fk": [
+      "matches.winner_id = players.player_id",
+      "matches.loser_id = players.player_id",
+      "rankings.player_id = players.player_id"
+    ],
+    "db_contents": {
+      "players": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "rankings": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "matches": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What is the average weight and year for each year?",
+    "schema": {
+      "cars_data": [
+        "weight",
+        "year",
+        "id",
+        "mpg"
+      ],
+      "car_makers": [
+        "maker",
+        "fullname",
+        "country",
+        "id"
+      ],
+      "model_list": [
+        "maker",
+        "model",
+        "modelid"
+      ],
+      "car_names": [
+        "makeid",
+        "model",
+        "make"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "What is the template type code for template type description \"Book\".",
+    "schema": {
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ],
+      "templates": [
+        "template_type_code",
+        "template_id",
+        "version_number",
+        "date_effective_from"
+      ],
+      "documents": [
+        "template_id",
+        "document_id",
+        "document_name",
+        "document_description"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_id",
+        "paragraph_text",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "ref_template_types": [
+        [],
+        [
+          "Book"
+        ]
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "What is the content of TV Channel with serial name \"Sky Radio\"?",
+    "schema": {
+      "tv_channel": [
+        "series_name",
+        "content",
+        "country",
+        "language",
+        "id"
+      ],
+      "tv_series": [
+        "channel",
+        "episode",
+        "air_date",
+        "rating",
+        "id"
+      ],
+      "cartoon": [
+        "channel",
+        "title",
+        "directed_by",
+        "written_by",
+        "id"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "tv_channel": [
+        [
+          "Sky Radio"
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "cartoon": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "How many documents do we have?",
+    "schema": {
+      "documents": [
+        "document_id",
+        "template_id",
+        "document_name",
+        "document_description"
+      ],
+      "templates": [
+        "template_id",
+        "version_number",
+        "template_type_code",
+        "date_effective_from"
+      ],
+      "paragraphs": [
+        "paragraph_id",
+        "document_id",
+        "paragraph_text",
+        "other_details"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "student_transcripts_tracking",
+    "question": "How many different degrees are offered?",
+    "schema": {
+      "degree_programs": [
+        "department_id",
+        "degree_program_id",
+        "degree_summary_name",
+        "degree_summary_description"
+      ],
+      "departments": [
+        "department_id",
+        "department_name",
+        "department_description",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "degree_programs.department_id = departments.department_id"
+    ],
+    "db_contents": {
+      "degree_programs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "departments": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "For the countries founded before 1930, what is the total number of distinct official languages?",
+    "schema": {
+      "country": [
+        "code",
+        "name",
+        "indepyear",
+        "code2",
+        "continent"
+      ],
+      "countrylanguage": [
+        "countrycode",
+        "language",
+        "isofficial",
+        "percentage"
+      ]
+    },
+    "fk": [
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "Return the number of United Airlines flights leaving from AHD Airport.",
+    "schema": {
+      "flights": [
+        "airline",
+        "sourceairport",
+        "destairport",
+        "flightno"
+      ],
+      "airlines": [
+        "airline",
+        "uid",
+        "abbreviation",
+        "country"
+      ],
+      "airports": [
+        "airportcode",
+        "city",
+        "country",
+        "airportname"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "flights": [
+        [],
+        [
+          "AHD"
+        ],
+        [
+          "AHD"
+        ],
+        []
+      ],
+      "airlines": [
+        [
+          "United Airlines"
+        ],
+        [],
+        [],
+        []
+      ],
+      "airports": [
+        [
+          "AHD"
+        ],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What are the African countries that have a  population less than any country in Asia?",
+    "schema": {
+      "country": [
+        "code",
+        "name",
+        "continent",
+        "population"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "population",
+        "district",
+        "id"
+      ],
+      "sqlite_sequence": [
+        "name",
+        "seq"
+      ],
+      "countrylanguage": [
+        "countrycode",
+        "language",
+        "percentage",
+        "isofficial"
+      ]
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "country": [
+        [],
+        [],
+        [
+          "Africa",
+          "Asia"
+        ],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": [
+        [],
+        []
+      ],
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "pets_1",
+    "question": "Find the major and age of students who do not have a cat pet.",
+    "schema": {
+      "has_pet": [
+        "stuid",
+        "petid"
+      ],
+      "student": [
+        "major",
+        "age",
+        "stuid",
+        "lname"
+      ],
+      "pets": [
+        "pettype",
+        "petid",
+        "pet_age",
+        "weight"
+      ]
+    },
+    "fk": [
+      "has_pet.stuid = student.stuid",
+      "has_pet.petid = pets.petid"
+    ],
+    "db_contents": {
+      "has_pet": [
+        [],
+        []
+      ],
+      "student": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "pets": [
+        [
+          "cat"
+        ],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "wta_1",
+    "question": "List the first name and birth date of all players from the country with code USA.",
+    "schema": {
+      "players": [
+        "country_code",
+        "first_name",
+        "birth_date",
+        "player_id",
+        "last_name"
+      ],
+      "matches": [
+        "winner_id",
+        "loser_id",
+        "winner_name",
+        "winner_ioc",
+        "loser_ioc"
+      ],
+      "rankings": [
+        "player_id",
+        "ranking_date",
+        "ranking",
+        "ranking_points"
+      ]
+    },
+    "fk": [
+      "matches.winner_id = players.player_id",
+      "matches.loser_id = players.player_id",
+      "rankings.player_id = players.player_id"
+    ],
+    "db_contents": {
+      "players": [
+        [
+          "USA"
+        ],
+        [],
+        [],
+        [],
+        [
+          "Date"
+        ]
+      ],
+      "matches": [
+        [],
+        [],
+        [],
+        [
+          "USA"
+        ],
+        [
+          "USA"
+        ]
+      ],
+      "rankings": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "What are the names and release years for all the songs of the youngest singer?",
+    "schema": {
+      "singer": [
+        "age",
+        "name",
+        "song_name",
+        "song_release_year",
+        "singer_id"
+      ],
+      "singer_in_concert": [
+        "singer_id",
+        "concert_id"
+      ],
+      "concert": [
+        "concert_id",
+        "stadium_id",
+        "concert_name",
+        "theme",
+        "year"
+      ],
+      "stadium": [
+        "stadium_id",
+        "location",
+        "name",
+        "capacity",
+        "highest"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "stadium": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "poker_player",
+    "question": "List the final tables made and the best finishes of poker players.",
+    "schema": {
+      "poker_player": [
+        "final_table_made",
+        "best_finish",
+        "poker_player_id",
+        "people_id",
+        "money_rank"
+      ],
+      "people": [
+        "nationality",
+        "name",
+        "birth_date",
+        "people_id",
+        "height"
+      ]
+    },
+    "fk": [
+      "poker_player.people_id = people.people_id"
+    ],
+    "db_contents": {
+      "poker_player": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "people": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "Give the flight numbers of flights landing at APG.",
+    "schema": {
+      "flights": [
+        "flightno",
+        "destairport",
+        "sourceairport",
+        "airline"
+      ],
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "country",
+        "uid"
+      ],
+      "airports": [
+        "airportcode",
+        "airportname",
+        "city",
+        "country"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "flights": [
+        [],
+        [
+          "APG"
+        ],
+        [
+          "APG"
+        ],
+        []
+      ],
+      "airlines": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "airports": [
+        [
+          "APG"
+        ],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "employee_hire_evaluation",
+    "question": "Find the total amount of bonus given in all the evaluations.",
+    "schema": {
+      "evaluation": [
+        "employee_id",
+        "bonus",
+        "year_awarded"
+      ],
+      "employee": [
+        "employee_id",
+        "name",
+        "age",
+        "city"
+      ],
+      "hiring": [
+        "employee_id",
+        "shop_id",
+        "start_from",
+        "is_full_time"
+      ],
+      "shop": [
+        "shop_id",
+        "name",
+        "location",
+        "district"
+      ]
+    },
+    "fk": [
+      "hiring.employee_id = employee.employee_id",
+      "hiring.shop_id = shop.shop_id",
+      "evaluation.employee_id = employee.employee_id"
+    ],
+    "db_contents": {
+      "evaluation": [
+        [],
+        [],
+        []
+      ],
+      "employee": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "hiring": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "shop": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What is the minimum weight of the car with 8 cylinders produced in 1974 ?",
+    "schema": {
+      "cars_data": [
+        "cylinders",
+        "weight",
+        "year",
+        "id"
+      ],
+      "model_list": [
+        "modelid",
+        "maker",
+        "model"
+      ],
+      "car_makers": [
+        "id",
+        "maker",
+        "fullname",
+        "country"
+      ],
+      "car_names": [
+        "makeid",
+        "model",
+        "make"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What are names of countries with the top 3 largest population?",
+    "schema": {
+      "country": [
+        "name",
+        "population",
+        "code",
+        "continent",
+        "surfacearea"
+      ],
+      "city": [
+        "countrycode",
+        "population",
+        "name",
+        "district",
+        "id"
+      ],
+      "countrylanguage": [
+        "countrycode",
+        "language",
+        "isofficial",
+        "percentage"
+      ],
+      "sqlite_sequence": [
+        "name",
+        "seq"
+      ]
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "wta_1",
+    "question": "What are the names of the winner and loser who played in the longest match?",
+    "schema": {
+      "matches": [
+        "minutes",
+        "winner_name",
+        "loser_name",
+        "winner_id",
+        "match_num",
+        "loser_id"
+      ],
+      "players": [
+        "first_name",
+        "last_name",
+        "player_id",
+        "hand"
+      ],
+      "rankings": [
+        "player_id",
+        "ranking_date",
+        "ranking",
+        "ranking_points"
+      ]
+    },
+    "fk": [
+      "matches.winner_id = players.player_id",
+      "matches.loser_id = players.player_id",
+      "rankings.player_id = players.player_id"
+    ],
+    "db_contents": {
+      "matches": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "players": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "rankings": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "singer",
+    "question": "List the name of singers that do not have any song.",
+    "schema": {
+      "singer": [
+        "singer_id",
+        "name",
+        "birth_year",
+        "net_worth_millions"
+      ],
+      "song": [
+        "title",
+        "singer_id",
+        "sales",
+        "song_id",
+        "highest_position"
+      ]
+    },
+    "fk": [
+      "song.singer_id = singer.singer_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "song": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "What are  the different countries with singers above age 20?",
+    "schema": {
+      "singer": [
+        "age",
+        "country",
+        "name",
+        "is_male",
+        "singer_id"
+      ],
+      "singer_in_concert": [
+        "concert_id",
+        "singer_id"
+      ],
+      "concert": [
+        "year",
+        "stadium_id",
+        "concert_name",
+        "theme",
+        "concert_id"
+      ],
+      "stadium": [
+        "location",
+        "name",
+        "capacity",
+        "stadium_id",
+        "highest"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "stadium": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What are the names of the countries with no car makers?",
+    "schema": {
+      "countries": [
+        "countryname",
+        "countryid",
+        "continent"
+      ],
+      "car_makers": [
+        "country",
+        "maker",
+        "id",
+        "fullname"
+      ]
+    },
+    "fk": [
+      "car_makers.country = countries.countryid"
+    ],
+    "db_contents": {
+      "countries": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "Which continent speaks the most languages?",
+    "schema": {
+      "countrylanguage": [
+        "countrycode",
+        "language",
+        "isofficial",
+        "percentage"
+      ],
+      "country": [
+        "continent",
+        "code",
+        "name",
+        "population"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "district",
+        "population"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "country": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "What is the name and directors of all the cartoons that are ordered by air date?",
+    "schema": {
+      "cartoon": [
+        "title",
+        "directed_by",
+        "original_air_date",
+        "channel"
+      ],
+      "tv_series": [
+        "air_date",
+        "episode",
+        "channel",
+        "rating",
+        "share"
+      ],
+      "tv_channel": [
+        "series_name",
+        "country",
+        "language",
+        "content",
+        "id"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "cartoon": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What are the names of nations speak both English and French?",
+    "schema": {
+      "countrylanguage": [
+        "language",
+        "countrycode",
+        "isofficial",
+        "percentage"
+      ],
+      "country": [
+        "code",
+        "name",
+        "continent",
+        "region",
+        "code2"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "district",
+        "population"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "countrylanguage": [
+        [
+          "English",
+          "French"
+        ],
+        [],
+        [],
+        []
+      ],
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "student_transcripts_tracking",
+    "question": "Which department offers the most number of degrees? List department name and id.",
+    "schema": {
+      "degree_programs": [
+        "department_id",
+        "degree_program_id",
+        "degree_summary_name",
+        "degree_summary_description"
+      ],
+      "departments": [
+        "department_id",
+        "department_name",
+        "department_description",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "degree_programs.department_id = departments.department_id"
+    ],
+    "db_contents": {
+      "degree_programs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "departments": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "pets_1",
+    "question": "Find the number of dog pets that are raised by female students (with sex F).",
+    "schema": {
+      "has_pet": [
+        "stuid",
+        "petid"
+      ],
+      "student": [
+        "sex",
+        "stuid",
+        "lname",
+        "fname"
+      ],
+      "pets": [
+        "pettype",
+        "petid",
+        "pet_age",
+        "weight"
+      ]
+    },
+    "fk": [
+      "has_pet.stuid = student.stuid",
+      "has_pet.petid = pets.petid"
+    ],
+    "db_contents": {
+      "has_pet": [
+        [],
+        []
+      ],
+      "student": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "pets": [
+        [
+          "dog"
+        ],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "Show name, country, age for all singers ordered by age from the oldest to the youngest.",
+    "schema": {
+      "singer": [
+        "name",
+        "country",
+        "age",
+        "singer_id",
+        "is_male"
+      ],
+      "singer_in_concert": [
+        "singer_id",
+        "concert_id"
+      ],
+      "concert": [
+        "stadium_id",
+        "concert_id",
+        "concert_name",
+        "theme",
+        "year"
+      ],
+      "stadium": [
+        "stadium_id",
+        "location",
+        "name",
+        "capacity",
+        "highest"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "stadium": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "How many flights land in Aberdeen or Abilene?",
+    "schema": {
+      "airports": [
+        "airportcode",
+        "city",
+        "airportname",
+        "country",
+        "countryabbrev"
+      ],
+      "flights": [
+        "destairport",
+        "sourceairport",
+        "airline",
+        "flightno"
+      ],
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "country",
+        "uid"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "airports": [
+        [],
+        [
+          "Aberdeen",
+          "Abilene"
+        ],
+        [],
+        [],
+        []
+      ],
+      "flights": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "airlines": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What is the average miles per gallon(mpg) of the cars with 4 cylinders?",
+    "schema": {
+      "cars_data": [
+        "mpg",
+        "cylinders",
+        "id",
+        "edispl",
+        "horsepower"
+      ],
+      "countries": [
+        "countryid",
+        "countryname",
+        "continent"
+      ],
+      "car_makers": [
+        "maker",
+        "id",
+        "fullname",
+        "country"
+      ],
+      "model_list": [
+        "maker",
+        "modelid",
+        "model"
+      ]
+    },
+    "fk": [
+      "car_makers.country = countries.countryid",
+      "model_list.maker = car_makers.id"
+    ],
+    "db_contents": {
+      "cars_data": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "countries": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What languages are only used by a single country with a republic government?",
+    "schema": {
+      "country": [
+        "governmentform",
+        "code",
+        "name",
+        "code2",
+        "continent"
+      ],
+      "countrylanguage": [
+        "language",
+        "isofficial",
+        "countrycode",
+        "percentage"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "district",
+        "population"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "country": [
+        [
+          "Republic"
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What is the name of country that has the shortest life expectancy in Asia?",
+    "schema": {
+      "country": [
+        "name",
+        "continent",
+        "lifeexpectancy",
+        "code"
+      ],
+      "countrylanguage": [
+        "countrycode",
+        "language",
+        "isofficial",
+        "percentage"
+      ],
+      "city": [
+        "name",
+        "countrycode",
+        "population",
+        "district"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "country": [
+        [],
+        [
+          "Asia"
+        ],
+        [],
+        []
+      ],
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "Return the names and template ids for documents that contain the letter w in their description.",
+    "schema": {
+      "documents": [
+        "template_id",
+        "document_name",
+        "document_description",
+        "document_id"
+      ],
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "date_effective_from",
+        "version_number",
+        "date_effective_to"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_text",
+        "other_details",
+        "paragraph_id"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "pets_1",
+    "question": "What are the students' first names who have both cats and dogs as pets?",
+    "schema": {
+      "pets": [
+        "pettype",
+        "petid",
+        "pet_age",
+        "weight"
+      ],
+      "has_pet": [
+        "stuid",
+        "petid"
+      ],
+      "student": [
+        "fname",
+        "stuid",
+        "lname",
+        "age"
+      ]
+    },
+    "fk": [
+      "has_pet.stuid = student.stuid",
+      "has_pet.petid = pets.petid"
+    ],
+    "db_contents": {
+      "pets": [
+        [
+          "cat",
+          "dog"
+        ],
+        [],
+        [],
+        []
+      ],
+      "has_pet": [
+        [],
+        []
+      ],
+      "student": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "battle_death",
+    "question": "What are the name and results of the battles when the bulgarian commander is not 'Boril'",
+    "schema": {
+      "battle": [
+        "name",
+        "result",
+        "bulgarian_commander",
+        "date",
+        "latin_commander",
+        "id"
+      ],
+      "ship": [
+        "lost_in_battle",
+        "name",
+        "tonnage",
+        "ship_type",
+        "id"
+      ],
+      "death": [
+        "caused_by_ship_id",
+        "note",
+        "killed",
+        "injured",
+        "id"
+      ]
+    },
+    "fk": [
+      "ship.lost_in_battle = battle.id",
+      "death.caused_by_ship_id = ship.id"
+    ],
+    "db_contents": {
+      "battle": [
+        [],
+        [],
+        [
+          "Boril"
+        ],
+        [],
+        [],
+        []
+      ],
+      "ship": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "death": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "course_teach",
+    "question": "List the names of teachers who have not been arranged to teach courses.",
+    "schema": {
+      "teacher": [
+        "teacher_id",
+        "name",
+        "age",
+        "hometown"
+      ],
+      "course_arrange": [
+        "teacher_id",
+        "course_id",
+        "grade"
+      ],
+      "course": [
+        "course_id",
+        "course"
+      ]
+    },
+    "fk": [
+      "course_arrange.teacher_id = teacher.teacher_id",
+      "course_arrange.course_id = course.course_id"
+    ],
+    "db_contents": {
+      "teacher": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "course_arrange": [
+        [],
+        [],
+        []
+      ],
+      "course": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "Which model saves the most gasoline? That is to say, have the maximum miles per gallon.",
+    "schema": {
+      "model_list": [
+        "model",
+        "maker",
+        "modelid"
+      ],
+      "cars_data": [
+        "mpg",
+        "id",
+        "cylinders",
+        "edispl"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ],
+      "car_makers": [
+        "maker",
+        "id",
+        "fullname",
+        "country"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "What is the lowest grade of students who do not have any friends?",
+    "schema": {
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "highschooler": [
+        "grade",
+        "id",
+        "name"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "friend": [
+        [],
+        []
+      ],
+      "highschooler": [
+        [],
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "student_transcripts_tracking",
+    "question": "Describe the section h.",
+    "schema": {
+      "sections": [
+        "section_name",
+        "course_id",
+        "section_description",
+        "section_id"
+      ],
+      "courses": [
+        "course_name",
+        "course_description",
+        "other_details",
+        "course_id"
+      ],
+      "student_enrolment_courses": [
+        "course_id",
+        "student_course_id",
+        "student_enrolment_id"
+      ],
+      "students": [
+        "first_name",
+        "last_name",
+        "middle_name",
+        "student_id",
+        "current_address_id"
+      ]
+    },
+    "fk": [
+      "sections.course_id = courses.course_id",
+      "student_enrolment_courses.course_id = courses.course_id"
+    ],
+    "db_contents": {
+      "sections": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "courses": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "student_enrolment_courses": [
+        [],
+        [],
+        []
+      ],
+      "students": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "What are the different template type codes, and how many templates correspond to each?",
+    "schema": {
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ],
+      "templates": [
+        "template_type_code",
+        "template_id",
+        "version_number",
+        "date_effective_from"
+      ],
+      "documents": [
+        "template_id",
+        "document_id",
+        "document_name",
+        "document_description"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_id",
+        "paragraph_text",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "ref_template_types": [
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "dog_kennels",
+    "question": "How many professionals did not operate any treatment on dogs?",
+    "schema": {
+      "professionals": [
+        "professional_id",
+        "role_code",
+        "first_name",
+        "last_name",
+        "email_address"
+      ],
+      "treatments": [
+        "professional_id",
+        "treatment_id",
+        "dog_id",
+        "treatment_type_code"
+      ],
+      "dogs": [
+        "dog_id",
+        "owner_id",
+        "breed_code",
+        "abandoned_yn",
+        "name"
+      ]
+    },
+    "fk": [
+      "treatments.dog_id = dogs.dog_id",
+      "treatments.professional_id = professionals.professional_id"
+    ],
+    "db_contents": {
+      "professionals": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "treatments": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "dogs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "wta_1",
+    "question": "What is the best rank of losers across all matches?",
+    "schema": {
+      "rankings": [
+        "player_id",
+        "ranking_points",
+        "ranking",
+        "ranking_date"
+      ],
+      "matches": [
+        "loser_rank",
+        "loser_id",
+        "loser_rank_points",
+        "winner_id",
+        "year"
+      ],
+      "players": [
+        "player_id",
+        "first_name",
+        "last_name",
+        "birth_date",
+        "hand"
+      ]
+    },
+    "fk": [
+      "matches.winner_id = players.player_id",
+      "matches.loser_id = players.player_id",
+      "rankings.player_id = players.player_id"
+    ],
+    "db_contents": {
+      "rankings": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "matches": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "players": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "List the title of all  Cartoons showed on TV Channel with series name \"Sky Radio\".",
+    "schema": {
+      "cartoon": [
+        "channel",
+        "title",
+        "directed_by",
+        "written_by"
+      ],
+      "tv_channel": [
+        "id",
+        "series_name",
+        "country",
+        "language"
+      ],
+      "tv_series": [
+        "episode",
+        "air_date",
+        "channel",
+        "rating",
+        "id"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "cartoon": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [
+          "Sky Radio"
+        ],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "Give the code of the airport with the least flights.",
+    "schema": {
+      "flights": [
+        "destairport",
+        "sourceairport",
+        "airline",
+        "flightno"
+      ],
+      "airports": [
+        "airportcode",
+        "airportname",
+        "city",
+        "country",
+        "countryabbrev"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "flights": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "airports": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "What are all distinct countries where singers above age 20 are from?",
+    "schema": {
+      "singer": [
+        "country",
+        "age",
+        "name",
+        "singer_id",
+        "is_male"
+      ],
+      "singer_in_concert": [
+        "singer_id",
+        "concert_id"
+      ],
+      "concert": [
+        "stadium_id",
+        "concert_name",
+        "year",
+        "theme",
+        "concert_id"
+      ],
+      "stadium": [
+        "location",
+        "name",
+        "capacity",
+        "stadium_id",
+        "highest"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "stadium": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "Which models are lighter than 3500 but not built by the 'Ford Motor Company'?",
+    "schema": {
+      "model_list": [
+        "model",
+        "maker",
+        "modelid"
+      ],
+      "car_makers": [
+        "maker",
+        "fullname",
+        "country",
+        "id"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ],
+      "cars_data": [
+        "weight",
+        "id",
+        "mpg",
+        "cylinders",
+        "edispl"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "model_list": [
+        [
+          "ford"
+        ],
+        [],
+        []
+      ],
+      "car_makers": [
+        [
+          "ford"
+        ],
+        [
+          "Ford Motor Company"
+        ],
+        [],
+        []
+      ],
+      "car_names": [
+        [
+          "ford"
+        ],
+        [],
+        []
+      ],
+      "cars_data": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "orchestra",
+    "question": "Please show the different record companies and the corresponding number of orchestras.",
+    "schema": {
+      "orchestra": [
+        "record_company",
+        "orchestra_id",
+        "conductor_id",
+        "orchestra"
+      ],
+      "conductor": [
+        "conductor_id",
+        "name",
+        "age",
+        "nationality"
+      ]
+    },
+    "fk": [
+      "orchestra.conductor_id = conductor.conductor_id"
+    ],
+    "db_contents": {
+      "orchestra": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "conductor": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "Count the number of templates.",
+    "schema": {
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "date_effective_from",
+        "version_number",
+        "date_effective_to"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ],
+      "documents": [
+        "document_id",
+        "template_id",
+        "document_name",
+        "document_description"
+      ],
+      "paragraphs": [
+        "paragraph_id",
+        "document_id",
+        "paragraph_text",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "templates": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [],
+        []
+      ],
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "What is the airport name for airport 'AKO'?",
+    "schema": {
+      "airports": [
+        "airportcode",
+        "airportname",
+        "city",
+        "country"
+      ],
+      "flights": [
+        "sourceairport",
+        "destairport",
+        "airline",
+        "flightno"
+      ],
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "country",
+        "uid"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "airports": [
+        [
+          "AKO"
+        ],
+        [],
+        [],
+        []
+      ],
+      "flights": [
+        [
+          "AKO"
+        ],
+        [
+          "AKO"
+        ],
+        [],
+        []
+      ],
+      "airlines": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "poker_player",
+    "question": "Return the money rank of the poker player with the greatest height.",
+    "schema": {
+      "people": [
+        "height",
+        "nationality",
+        "name",
+        "people_id",
+        "birth_date"
+      ],
+      "poker_player": [
+        "poker_player_id",
+        "people_id",
+        "money_rank",
+        "final_table_made",
+        "best_finish"
+      ]
+    },
+    "fk": [
+      "poker_player.people_id = people.people_id"
+    ],
+    "db_contents": {
+      "people": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "poker_player": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "course_teach",
+    "question": "Show the name of the teacher for the math course.",
+    "schema": {
+      "teacher": [
+        "name",
+        "teacher_id",
+        "age",
+        "hometown"
+      ],
+      "course": [
+        "course",
+        "course_id",
+        "staring_date"
+      ],
+      "course_arrange": [
+        "teacher_id",
+        "course_id",
+        "grade"
+      ]
+    },
+    "fk": [
+      "course_arrange.teacher_id = teacher.teacher_id",
+      "course_arrange.course_id = course.course_id"
+    ],
+    "db_contents": {
+      "teacher": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "course": [
+        [
+          "Math"
+        ],
+        [],
+        []
+      ],
+      "course_arrange": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "How many likes does Kyle have?",
+    "schema": {
+      "highschooler": [
+        "name",
+        "id",
+        "grade"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ],
+      "friend": [
+        "student_id",
+        "friend_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "highschooler": [
+        [
+          "Kyle"
+        ],
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ],
+      "friend": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "voter_1",
+    "question": "What is last date created of votes from the state 'CA'?",
+    "schema": {
+      "votes": [
+        "created",
+        "state",
+        "vote_id",
+        "contestant_number",
+        "phone_number"
+      ],
+      "area_code_state": [
+        "state",
+        "area_code"
+      ],
+      "contestants": [
+        "contestant_number",
+        "contestant_name"
+      ]
+    },
+    "fk": [
+      "votes.contestant_number = contestants.contestant_number",
+      "votes.state = area_code_state.state"
+    ],
+    "db_contents": {
+      "votes": [
+        [],
+        [
+          "CA"
+        ],
+        [],
+        [],
+        []
+      ],
+      "area_code_state": [
+        [
+          "CA"
+        ],
+        []
+      ],
+      "contestants": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "Which countries in europe have at least 3 car manufacturers?",
+    "schema": {
+      "continents": [
+        "continent",
+        "contid"
+      ],
+      "countries": [
+        "countryname",
+        "continent",
+        "countryid"
+      ],
+      "car_makers": [
+        "maker",
+        "country",
+        "id",
+        "fullname"
+      ]
+    },
+    "fk": [
+      "countries.continent = continents.contid",
+      "car_makers.country = countries.countryid"
+    ],
+    "db_contents": {
+      "continents": [
+        [
+          "europe"
+        ],
+        []
+      ],
+      "countries": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "What grade is Kyle in?",
+    "schema": {
+      "highschooler": [
+        "name",
+        "grade",
+        "id"
+      ],
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "highschooler": [
+        [
+          "Kyle"
+        ],
+        [],
+        []
+      ],
+      "friend": [
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What are the ids and names of all countries that either have more than 3 car makers or produce fiat model ?",
+    "schema": {
+      "countries": [
+        "countryid",
+        "countryname",
+        "continent"
+      ],
+      "car_makers": [
+        "id",
+        "maker",
+        "country",
+        "fullname"
+      ],
+      "model_list": [
+        "modelid",
+        "maker",
+        "model"
+      ],
+      "car_names": [
+        "makeid",
+        "model",
+        "make"
+      ]
+    },
+    "fk": [
+      "car_makers.country = countries.countryid",
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model"
+    ],
+    "db_contents": {
+      "countries": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [
+          "fiat"
+        ],
+        [],
+        [
+          "Fiat"
+        ]
+      ],
+      "model_list": [
+        [],
+        [],
+        [
+          "fiat"
+        ]
+      ],
+      "car_names": [
+        [],
+        [
+          "fiat"
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "dog_kennels",
+    "question": "How much does the most recent treatment cost?",
+    "schema": {
+      "treatments": [
+        "date_of_treatment",
+        "cost_of_treatment",
+        "dog_id",
+        "treatment_id",
+        "professional_id"
+      ],
+      "dogs": [
+        "dog_id",
+        "owner_id",
+        "breed_code",
+        "name",
+        "abandoned_yn"
+      ],
+      "professionals": [
+        "professional_id",
+        "first_name",
+        "role_code",
+        "last_name",
+        "street"
+      ]
+    },
+    "fk": [
+      "treatments.dog_id = dogs.dog_id",
+      "treatments.professional_id = professionals.professional_id"
+    ],
+    "db_contents": {
+      "treatments": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "dogs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "professionals": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "Show the names and grades of each high schooler.",
+    "schema": {
+      "highschooler": [
+        "name",
+        "grade",
+        "id"
+      ],
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "highschooler": [
+        [],
+        [],
+        []
+      ],
+      "friend": [
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "network_1",
+    "question": "What are the ids of high school students who do not have friends?",
+    "schema": {
+      "highschooler": [
+        "id",
+        "name",
+        "grade"
+      ],
+      "friend": [
+        "student_id",
+        "friend_id"
+      ],
+      "likes": [
+        "student_id",
+        "liked_id"
+      ]
+    },
+    "fk": [
+      "friend.friend_id = highschooler.id",
+      "friend.student_id = highschooler.id",
+      "likes.student_id = highschooler.id",
+      "likes.liked_id = highschooler.id"
+    ],
+    "db_contents": {
+      "highschooler": [
+        [],
+        [],
+        []
+      ],
+      "friend": [
+        [],
+        []
+      ],
+      "likes": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "How many cartoons were written by \"Joseph Kuhr\"?",
+    "schema": {
+      "cartoon": [
+        "written_by",
+        "title",
+        "directed_by",
+        "id",
+        "original_air_date",
+        "channel"
+      ],
+      "tv_channel": [
+        "series_name",
+        "id",
+        "country",
+        "language"
+      ],
+      "tv_series": [
+        "episode",
+        "air_date",
+        "rating",
+        "channel",
+        "id"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "cartoon": [
+        [
+          "Joseph Kuhr"
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "dog_kennels",
+    "question": "What is the description of the treatment type that costs the least money in total?",
+    "schema": {
+      "treatment_types": [
+        "treatment_type_description",
+        "treatment_type_code"
+      ],
+      "treatments": [
+        "cost_of_treatment",
+        "treatment_type_code",
+        "dog_id",
+        "treatment_id",
+        "date_of_treatment"
+      ],
+      "charges": [
+        "charge_amount",
+        "charge_type",
+        "charge_id"
+      ],
+      "dogs": [
+        "dog_id",
+        "owner_id",
+        "breed_code",
+        "abandoned_yn",
+        "name"
+      ]
+    },
+    "fk": [
+      "treatments.dog_id = dogs.dog_id",
+      "treatments.treatment_type_code = treatment_types.treatment_type_code"
+    ],
+    "db_contents": {
+      "treatment_types": [
+        [],
+        []
+      ],
+      "treatments": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "charges": [
+        [],
+        [],
+        []
+      ],
+      "dogs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "How many car makers are there in each continents? List the continent name and the count.",
+    "schema": {
+      "continents": [
+        "continent",
+        "contid"
+      ],
+      "countries": [
+        "countryname",
+        "continent",
+        "countryid"
+      ],
+      "car_makers": [
+        "id",
+        "maker",
+        "fullname",
+        "country"
+      ],
+      "model_list": [
+        "maker",
+        "modelid",
+        "model"
+      ]
+    },
+    "fk": [
+      "countries.continent = continents.contid",
+      "car_makers.country = countries.countryid",
+      "model_list.maker = car_makers.id"
+    ],
+    "db_contents": {
+      "continents": [
+        [],
+        []
+      ],
+      "countries": [
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What are the different years in which there were cars produced that weighed less than 4000 and also cars that weighted more than 3000 ?",
+    "schema": {
+      "cars_data": [
+        "weight",
+        "year",
+        "id",
+        "mpg",
+        "cylinders"
+      ],
+      "car_makers": [
+        "id",
+        "maker",
+        "fullname",
+        "country"
+      ],
+      "model_list": [
+        "maker",
+        "modelid",
+        "model"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "cars_data": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "car_makers": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "model_list": [
+        [],
+        [],
+        []
+      ],
+      "car_names": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "dog_kennels",
+    "question": "List the last name of the owner owning the youngest dog.",
+    "schema": {
+      "owners": [
+        "last_name",
+        "owner_id",
+        "first_name",
+        "email_address",
+        "street"
+      ],
+      "dogs": [
+        "owner_id",
+        "age",
+        "name",
+        "date_of_birth",
+        "dog_id"
+      ],
+      "treatments": [
+        "dog_id",
+        "professional_id",
+        "treatment_type_code",
+        "treatment_id",
+        "date_of_treatment"
+      ],
+      "professionals": [
+        "first_name",
+        "professional_id",
+        "role_code",
+        "last_name",
+        "street"
+      ]
+    },
+    "fk": [
+      "dogs.owner_id = owners.owner_id",
+      "dogs.owner_id = owners.owner_id",
+      "treatments.dog_id = dogs.dog_id",
+      "treatments.professional_id = professionals.professional_id"
+    ],
+    "db_contents": {
+      "owners": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "dogs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "treatments": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "professionals": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "pets_1",
+    "question": "What is the id of the pet owned by the student whose last name is 'Smith'?",
+    "schema": {
+      "student": [
+        "lname",
+        "stuid",
+        "fname",
+        "age",
+        "advisor"
+      ],
+      "has_pet": [
+        "stuid",
+        "petid"
+      ],
+      "pets": [
+        "petid",
+        "pettype",
+        "pet_age",
+        "weight"
+      ]
+    },
+    "fk": [
+      "has_pet.stuid = student.stuid",
+      "has_pet.petid = pets.petid"
+    ],
+    "db_contents": {
+      "student": [
+        [
+          "Smith"
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "has_pet": [
+        [],
+        []
+      ],
+      "pets": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "What is the Package Option of TV Channel with serial name \"Sky Radio\"?",
+    "schema": {
+      "tv_channel": [
+        "series_name",
+        "package_option",
+        "country",
+        "language",
+        "id"
+      ],
+      "tv_series": [
+        "channel",
+        "episode",
+        "air_date",
+        "id",
+        "rating"
+      ],
+      "cartoon": [
+        "channel",
+        "title",
+        "directed_by",
+        "id",
+        "written_by"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "tv_channel": [
+        [
+          "Sky Radio"
+        ],
+        [
+          "Option"
+        ],
+        [],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "cartoon": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "What are the number of concerts that occurred in the stadium with the largest capacity ?",
+    "schema": {
+      "stadium": [
+        "capacity",
+        "stadium_id",
+        "name",
+        "location",
+        "highest"
+      ],
+      "concert": [
+        "stadium_id",
+        "concert_id",
+        "concert_name",
+        "theme",
+        "year"
+      ],
+      "singer_in_concert": [
+        "concert_id",
+        "singer_id"
+      ],
+      "singer": [
+        "singer_id",
+        "name",
+        "country",
+        "song_name"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "stadium": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "singer": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "Return the number of  airports.",
+    "schema": {
+      "airports": [
+        "airportname",
+        "airportcode",
+        "city",
+        "country"
+      ],
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "uid",
+        "country"
+      ],
+      "flights": [
+        "sourceairport",
+        "destairport",
+        "flightno",
+        "airline"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "airports": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "airlines": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "flights": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "singer",
+    "question": "Please show the most common citizenship of singers.",
+    "schema": {
+      "singer": [
+        "citizenship",
+        "singer_id",
+        "name",
+        "birth_year",
+        "net_worth_millions"
+      ],
+      "song": [
+        "singer_id",
+        "title",
+        "sales",
+        "song_id",
+        "highest_position"
+      ]
+    },
+    "fk": [
+      "song.singer_id = singer.singer_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "song": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "voter_1",
+    "question": "Return the names of the contestants whose names contain the substring 'Al' .",
+    "schema": {
+      "contestants": [
+        "contestant_name",
+        "contestant_number"
+      ],
+      "votes": [
+        "contestant_number",
+        "state",
+        "phone_number",
+        "created"
+      ],
+      "area_code_state": [
+        "state",
+        "area_code"
+      ]
+    },
+    "fk": [
+      "votes.contestant_number = contestants.contestant_number",
+      "votes.state = area_code_state.state"
+    ],
+    "db_contents": {
+      "contestants": [
+        [],
+        []
+      ],
+      "votes": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "area_code_state": [
+        [
+          "AL"
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "What is minimum and maximum share of TV series?",
+    "schema": {
+      "tv_series": [
+        "share",
+        "episode",
+        "air_date",
+        "rating",
+        "id",
+        "channel"
+      ],
+      "cartoon": [
+        "channel",
+        "title",
+        "directed_by",
+        "id",
+        "original_air_date"
+      ],
+      "tv_channel": [
+        "series_name",
+        "country",
+        "language",
+        "id",
+        "content"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "cartoon": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "poker_player",
+    "question": "Return the birth date of the poker player with the lowest earnings.",
+    "schema": {
+      "poker_player": [
+        "earnings",
+        "people_id",
+        "final_table_made",
+        "best_finish",
+        "poker_player_id"
+      ],
+      "people": [
+        "birth_date",
+        "nationality",
+        "name",
+        "people_id",
+        "height"
+      ]
+    },
+    "fk": [
+      "poker_player.people_id = people.people_id"
+    ],
+    "db_contents": {
+      "poker_player": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "people": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "car_1",
+    "question": "What are the different models wthat are lighter than 3500 but were not built by the Ford Motor Company?",
+    "schema": {
+      "model_list": [
+        "maker",
+        "model",
+        "modelid"
+      ],
+      "car_makers": [
+        "maker",
+        "country",
+        "id",
+        "fullname"
+      ],
+      "car_names": [
+        "model",
+        "makeid",
+        "make"
+      ],
+      "cars_data": [
+        "weight",
+        "id",
+        "mpg",
+        "cylinders"
+      ]
+    },
+    "fk": [
+      "model_list.maker = car_makers.id",
+      "car_names.model = model_list.model",
+      "cars_data.id = car_names.makeid"
+    ],
+    "db_contents": {
+      "model_list": [
+        [],
+        [
+          "ford"
+        ],
+        []
+      ],
+      "car_makers": [
+        [
+          "ford"
+        ],
+        [],
+        [],
+        [
+          "Ford Motor Company"
+        ]
+      ],
+      "car_names": [
+        [
+          "ford"
+        ],
+        [],
+        []
+      ],
+      "cars_data": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "List document IDs, document names, and document descriptions for all documents.",
+    "schema": {
+      "documents": [
+        "document_id",
+        "document_name",
+        "document_description",
+        "template_id"
+      ],
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "version_number",
+        "date_effective_from"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_id",
+        "paragraph_text",
+        "other_details"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What are the names of countries that speak more than 2 languages, as well as how many languages they speak?",
+    "schema": {
+      "countrylanguage": [
+        "language",
+        "countrycode",
+        "percentage",
+        "isofficial"
+      ],
+      "country": [
+        "code",
+        "name",
+        "code2",
+        "continent",
+        "population"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "district",
+        "population",
+        "id"
+      ],
+      "sqlite_sequence": [
+        "name",
+        "seq"
+      ]
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": [
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "List the Episode of all  TV series showed on TV Channel with series name \"Sky Radio\".",
+    "schema": {
+      "tv_channel": [
+        "id",
+        "series_name",
+        "country",
+        "language"
+      ],
+      "tv_series": [
+        "episode",
+        "channel",
+        "id",
+        "air_date",
+        "rating"
+      ],
+      "cartoon": [
+        "channel",
+        "title",
+        "id",
+        "directed_by",
+        "written_by"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "tv_channel": [
+        [],
+        [
+          "Sky Radio"
+        ],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "cartoon": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "singer",
+    "question": "Show the names of singers and the total sales of their songs.",
+    "schema": {
+      "singer": [
+        "singer_id",
+        "name",
+        "birth_year",
+        "net_worth_millions"
+      ],
+      "song": [
+        "singer_id",
+        "sales",
+        "title",
+        "song_id"
+      ]
+    },
+    "fk": [
+      "song.singer_id = singer.singer_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "song": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "What is the document id, template id and description for document named \"Robbin CV\"?",
+    "schema": {
+      "documents": [
+        "document_name",
+        "document_id",
+        "template_id",
+        "document_description"
+      ],
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "version_number",
+        "date_effective_from",
+        "date_effective_to"
+      ],
+      "ref_template_types": [
+        "template_type_description",
+        "template_type_code"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_id",
+        "paragraph_text",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "documents": [
+        [
+          "Robbin CV"
+        ],
+        [],
+        [],
+        []
+      ],
+      "templates": [
+        [],
+        [
+          "CV"
+        ],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [
+          "CV"
+        ],
+        [
+          "CV"
+        ]
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "Count the number of templates of the type CV.",
+    "schema": {
+      "templates": [
+        "template_type_code",
+        "template_id",
+        "version_number",
+        "date_effective_from"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ],
+      "documents": [
+        "template_id",
+        "document_name",
+        "document_description",
+        "document_id",
+        "other_details"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_text",
+        "other_details",
+        "paragraph_id"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "templates": [
+        [
+          "CV"
+        ],
+        [],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [
+          "CV"
+        ],
+        [
+          "CV"
+        ]
+      ],
+      "documents": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "student_transcripts_tracking",
+    "question": "For each semester, what is the name and id of the one with the most students registered?",
+    "schema": {
+      "semesters": [
+        "semester_id",
+        "semester_name",
+        "semester_description",
+        "other_details"
+      ],
+      "student_enrolment": [
+        "semester_id",
+        "student_enrolment_id",
+        "student_id",
+        "degree_program_id"
+      ],
+      "student_enrolment_courses": [
+        "student_course_id",
+        "course_id",
+        "student_enrolment_id"
+      ]
+    },
+    "fk": [
+      "student_enrolment.semester_id = semesters.semester_id",
+      "student_enrolment_courses.student_enrolment_id = student_enrolment.student_enrolment_id"
+    ],
+    "db_contents": {
+      "semesters": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "student_enrolment": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "student_enrolment_courses": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "flight_2",
+    "question": "What are airport names at City 'Aberdeen'?",
+    "schema": {
+      "airports": [
+        "airportname",
+        "city",
+        "airportcode",
+        "country"
+      ],
+      "airlines": [
+        "airline",
+        "abbreviation",
+        "country",
+        "uid"
+      ],
+      "flights": [
+        "sourceairport",
+        "destairport",
+        "airline",
+        "flightno"
+      ]
+    },
+    "fk": [
+      "flights.destairport = airports.airportcode",
+      "flights.sourceairport = airports.airportcode"
+    ],
+    "db_contents": {
+      "airports": [
+        [],
+        [
+          "Aberdeen"
+        ],
+        [],
+        []
+      ],
+      "airlines": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "flights": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "course_teach",
+    "question": "Where is the youngest teacher from?",
+    "schema": {
+      "teacher": [
+        "age",
+        "hometown",
+        "teacher_id",
+        "name"
+      ],
+      "course_arrange": [
+        "teacher_id",
+        "grade",
+        "course_id"
+      ],
+      "course": [
+        "course_id",
+        "course",
+        "staring_date"
+      ]
+    },
+    "fk": [
+      "course_arrange.teacher_id = teacher.teacher_id",
+      "course_arrange.course_id = course.course_id"
+    ],
+    "db_contents": {
+      "teacher": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "course_arrange": [
+        [],
+        [],
+        []
+      ],
+      "course": [
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "What are the names of all stadiums that did not have a concert in 2014?",
+    "schema": {
+      "stadium": [
+        "stadium_id",
+        "name",
+        "location",
+        "capacity"
+      ],
+      "concert": [
+        "concert_name",
+        "stadium_id",
+        "concert_id",
+        "theme",
+        "year"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id"
+    ],
+    "db_contents": {
+      "stadium": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "cre_Doc_Template_Mgt",
+    "question": "What are the ids of templates with template type code PP or PPT?",
+    "schema": {
+      "templates": [
+        "template_id",
+        "template_type_code",
+        "version_number",
+        "date_effective_from"
+      ],
+      "ref_template_types": [
+        "template_type_code",
+        "template_type_description"
+      ],
+      "documents": [
+        "template_id",
+        "document_id",
+        "document_name",
+        "document_description"
+      ],
+      "paragraphs": [
+        "document_id",
+        "paragraph_id",
+        "paragraph_text",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "templates.template_type_code = ref_template_types.template_type_code",
+      "documents.template_id = templates.template_id",
+      "paragraphs.document_id = documents.document_id"
+    ],
+    "db_contents": {
+      "templates": [
+        [],
+        [
+          "PP",
+          "PPT"
+        ],
+        [],
+        []
+      ],
+      "ref_template_types": [
+        [
+          "PP",
+          "PPT"
+        ],
+        []
+      ],
+      "documents": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "paragraphs": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "world_1",
+    "question": "What is the language spoken by the largest percentage of people in each country?",
+    "schema": {
+      "countrylanguage": [
+        "language",
+        "percentage",
+        "countrycode",
+        "isofficial"
+      ],
+      "country": [
+        "code",
+        "name",
+        "population",
+        "code2",
+        "continent"
+      ],
+      "city": [
+        "countrycode",
+        "name",
+        "population",
+        "district"
+      ],
+      "sqlite_sequence": []
+    },
+    "fk": [
+      "city.countrycode = country.code",
+      "countrylanguage.countrycode = country.code"
+    ],
+    "db_contents": {
+      "countrylanguage": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "country": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "city": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "sqlite_sequence": []
+    }
+  },
+  {
+    "db_id": "student_transcripts_tracking",
+    "question": "What is the description for the section named h?",
+    "schema": {
+      "sections": [
+        "section_name",
+        "section_description",
+        "course_id",
+        "section_id",
+        "other_details"
+      ],
+      "courses": [
+        "course_id",
+        "course_description",
+        "course_name",
+        "other_details"
+      ]
+    },
+    "fk": [
+      "sections.course_id = courses.course_id"
+    ],
+    "db_contents": {
+      "sections": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "courses": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "concert_singer",
+    "question": "List all singer names in concerts in year 2014.",
+    "schema": {
+      "singer": [
+        "name",
+        "singer_id",
+        "is_male",
+        "country",
+        "song_name"
+      ],
+      "concert": [
+        "year",
+        "concert_id",
+        "concert_name",
+        "stadium_id",
+        "theme"
+      ],
+      "singer_in_concert": [
+        "concert_id",
+        "singer_id"
+      ],
+      "stadium": [
+        "stadium_id",
+        "location",
+        "name",
+        "capacity"
+      ]
+    },
+    "fk": [
+      "concert.stadium_id = stadium.stadium_id",
+      "singer_in_concert.singer_id = singer.singer_id",
+      "singer_in_concert.concert_id = concert.concert_id"
+    ],
+    "db_contents": {
+      "singer": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "concert": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "singer_in_concert": [
+        [],
+        []
+      ],
+      "stadium": [
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  },
+  {
+    "db_id": "tvshow",
+    "question": "What are the titles of all cartoons directed by Ben Jones or Brandon Vietti?",
+    "schema": {
+      "cartoon": [
+        "title",
+        "directed_by",
+        "channel",
+        "written_by",
+        "id"
+      ],
+      "tv_channel": [
+        "id",
+        "series_name",
+        "country",
+        "language"
+      ],
+      "tv_series": [
+        "episode",
+        "air_date",
+        "rating",
+        "channel",
+        "id"
+      ]
+    },
+    "fk": [
+      "tv_series.channel = tv_channel.id",
+      "cartoon.channel = tv_channel.id"
+    ],
+    "db_contents": {
+      "cartoon": [
+        [],
+        [
+          "Ben Jones",
+          "Brandon Vietti"
+        ],
+        [],
+        [],
+        []
+      ],
+      "tv_channel": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "tv_series": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    }
+  }
+]
